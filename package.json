@@ -1,0 +1,20 @@
+{
+  "name": "refresher-project",
+  "version": "1.0.0",
+  "description": "This is my landing page",
+  "main": "index.js",
+  "scripts": {
+    "compile-sass": "sass sass/main.scss src/css/style.css",
+    "watch-sass": "sass --watch sass/main.scss src/css/style.css",
+    "dev": "vite"
+  },
+  "author": "Damian",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.89.2",
+    "vite": "^7.0.0"
+  },
+  "dependencies": {
+    "gsap": "^3.13.0"
+  }
+}

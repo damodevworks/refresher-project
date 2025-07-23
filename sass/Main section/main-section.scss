@@ -1,0 +1,236 @@
+main {
+  min-height: 100dvh; // ✅ Let it grow if needed
+  background-color: #FFF8E1;
+  padding: 5rem 1rem 2rem 1rem; // combined padding
+  display: flex;
+  justify-content: center;
+
+  @media (max-width: 768px) {
+    min-height: unset; // let it shrink on small screens
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+  }
+
+
+  // Landscape development - whole section
+  @media (max-width: 1200px) and (orientation: landscape) {
+    min-height: 100dvh;
+  }
+
+}
+
+ 
+
+.main-technologies {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+  max-width: 800px;
+
+
+  // Landscape development - content (whole)
+   @media (max-width: 1200px) and (orientation: landscape) {
+        padding: 1rem 0 5rem;
+   }
+
+   @media (max-width: 700px) and (orientation: landscape) and (max-height: 400px) {
+    padding: 1rem 0 1rem;
+   }
+
+  p {
+    color: #0D1117;
+    text-align: center;
+    font-weight: 400;
+    font-size: 0.9rem;
+
+     @media (max-width: 950px) and (orientation: landscape) {
+        font-size: 0.7rem !important;
+    }
+  }
+}
+
+.main_headline {
+    font-family: Roboto;
+     white-space: nowrap;
+    color: #2C2C2C;
+    font-size: 1.1rem;
+
+    @media (max-width: 950px) and (orientation: landscape) {
+        font-size: 1.2rem !important;
+    }
+
+    @media (max-width: 340px) {
+        font-size: 1rem;
+    }
+
+}   
+
+.svg_container {
+    display: flex;
+    gap: 20px;
+    margin-top: 2rem;
+
+    @media (min-width: 1200px) {
+        gap: 40px;
+    }
+
+    @media (max-width: 340px) {
+        gap: 10px;
+    }
+
+
+    @media (max-width: 950px) and (orientation: landscape) {
+        gap: 30px;
+    }
+
+    .svg_main {
+        height: 30px;
+        width: 30px;
+
+        @media (max-width: 950px) and (orientation: landscape) {
+        height: 30px !important;
+        width: 30px !important;
+    }
+    }
+}
+
+@media(min-width: 700px) {
+    .main_headline {
+        font-size: 1.8rem;
+    }
+
+    .main-technologies {
+        p {
+            font-size: 1.4rem;
+        }
+    }
+
+    .svg_container {
+        .svg_main {
+            height: 50px;
+            width: 50px;
+        }
+    }
+
+    @media (max-width:1200px) and (orientation: landscape) {
+        .paraMain {
+            font-size: 1.2rem !important;
+        }
+    }
+}
+
+@media(min-width: 2000px) {
+     .main_headline {
+        font-size: 2.2rem;
+    }
+
+    .main-technologies {
+        p {
+            font-size: 1.6rem;
+            font-weight: 400;
+        }
+    }
+
+    .svg_container {
+        .svg_main {
+            height: 60px;
+            width: 60px;
+        }
+    }
+}
+
+.parallax_section {
+    position: relative;
+    width: 100%;
+    height: 100dvh;
+    overflow: hidden;
+}
+.parallax_bg {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 150%;
+    background-image: url('../../img/solen-feyissa-u8K7iXpgY9I-unsplash.jpg');
+    background-size: cover;
+    background-position: center center;
+    z-index: 0;
+}
+
+.bg_overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0%;
+    left: 0%;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+.parallax_content {
+    position: relative;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    font-size: 4rem;
+    font-family: Roboto;
+    color: $color-accent;
+
+     @media (max-width: 1200px) and (orientation: landscape) {
+        font-size: 2rem !important;
+    }
+
+    @media (max-width: 1200px) and (orientation: landscape) and (min-height: 750px) {
+        font-size: 3rem !important;
+    }
+}
+
+.move_px {
+    position: relative;
+}
+
+.create_px {
+    top: 10%;
+    right: 20%;
+
+    @media (max-width: 1200px) and (orientation: landscape) {
+        top: 20% !important;
+    }
+}
+.build_px {
+    top: 40%;
+    left: 20%;
+}
+
+@media (max-width: 855px) {
+    .parallax_content {
+        font-size: 3rem;
+    }
+    .build_px {
+    top: 40%;
+    left: 25%;
+}
+.create_px {
+    top: 45%;
+    right: 20%;
+}
+
+}
+
+@media (max-width: 500px) {
+    .parallax_content {
+        font-size: 2rem;
+    }
+    .build_px {
+    top: 40%;
+    left: 25%;
+}
+.create_px {
+    top: 45%;
+    right: 20%;
+}
+
+}
+

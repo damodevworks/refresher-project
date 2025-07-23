@@ -1,0 +1,43 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/**  
+
+-------- Color Hex Usage idea: --------- **/
+
+$color-accent: #F4D35E;
+$color-support: #FFF8E1;
+$call-to-action: #FF6F61;
+$fourth-colour: #0D1117;
+$header-colour: #22303C;
+
+
+  html {
+    font-size: 17px;
+  }
+
+  @media (min-width: 1700px) {
+    html {font-size: 20px; }
+}
+
+
+  @media (max-width: 600px) {
+    html {
+      font-size: 14px;
+    }
+  }
+
+
+body {
+    font-family: "Quicksand", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    line-height: 1.7;
+    padding: 1rem 2rem;
+    background-color:  $fourth-colour;
+    color: $color-support;
+}

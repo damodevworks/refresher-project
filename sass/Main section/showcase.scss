@@ -1,0 +1,145 @@
+// ************* SHOWCASE SECTION STARTS HERE: *************
+
+.showcase {
+    min-height: 100dvh;
+    width: 100%;
+    background-color: #161B22;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    padding: 100px 0 100px;
+
+
+    @media (max-width: 1200px) and (orientation: landscape){ 
+
+        height: 100dvh;
+        padding: 40px 0 100px;
+    }
+
+     @media (max-width: 1200px) {
+        padding-bottom: 200px;
+    }
+
+}
+
+
+.line {
+  position: absolute;
+  background-color: #63E2E0;
+  opacity: 0.3;
+  z-index: 0;
+
+  &.horizontal-line {
+    height: 2px;
+    width: 100%;
+    top: 10%;
+    left: 0%;
+  }
+
+  &.horizontal-line-2 {
+    height: 2px;
+    width: 100%;
+    top: 90%;
+    left: 0%;
+  }
+}
+
+.line {
+  box-shadow: 0px 0px 1px #63E2E0, 0 0 20px #63E2E0;
+
+}
+
+.mywork {
+    text-align: center;
+    font-size: 2.5rem;
+    white-space: no-wrap;
+    margin-top: 30px;
+
+    @media (max-width: 950px) and (orientation: landscape) {
+        font-size: 1.8rem;
+    }
+
+    @media (max-width: 700px) and (orientation: landscape) {
+        font-size: 1.5rem;
+    }
+}
+
+
+.projects {
+    flex: 1;
+    display: flex;
+    gap: 100px;
+    flex-direction: row;
+
+    @media (max-width: 1200px) and (orientation: landscape) {
+        flex-direction: row !important;
+    }
+
+    @media (max-width: 1200px) {
+        flex-direction: column;
+        gap: 50px;
+    }
+
+    @media (max-width: 700px) {
+        gap: 0px
+    }
+
+
+
+    .HH {
+        flex: 1;
+        background-image: url('../../img/hh.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center center;
+        cursor: crosshair;
+        overflow: hidden;
+         min-height: 180px;
+        max-width: 480px;    // or whatever makes sense for your design
+        width: 100%;         // ensures it shrinks down on small screens
+        margin: 0 auto;      // optional: centers the cards
+
+
+        &_overlay {
+            height: 100%;
+            width: 100%;
+            background: linear-gradient(to right, rgba(22, 27, 34, 1)80%, rgba(22, 27, 34, 0) 100%);
+            cursor: default;
+        }
+    }
+
+    .travelWish {
+        flex: 1;
+        background-image: url('../../img/travel-wish.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center center;
+        cursor: crosshair;
+        overflow: hidden;
+
+        min-height: 180px;
+        max-width: 480px;    // or whatever makes sense for your design
+        width: 100%;         // ensures it shrinks down on small screens
+        margin: 0 auto;      // optional: centers the cards
+
+
+
+        &_overlay {
+            height: 100%;
+            width: 100%;
+            background: linear-gradient(to right, rgba(22, 27, 34, 1)80%, rgba(22, 27, 34, 0) 100%);
+            cursor: default;
+        }
+    }
+
+    .HH.unrevealed, .travelWish.unrevealed {
+    pointer-events: none;  
+    }
+
+    .HH:not(.unrevealed):hover, .travelWish:not(.unrevealed):hover {
+        cursor: crosshair;
+        transform: scale(1.08);
+        transition: transform 1s cubic-bezier(.5,1.3,.4,1.1);
+    }
+
+}

@@ -1,0 +1,21 @@
+# Ignore node_modules (ALWAYS)
+node_modules/
+
+# macOS system file (if you use Mac at some point)
+.DS_Store
+
+# VS Code settings (if you don’t want to share)
+.vscode/
+
+# Log files
+*.log
+
+# Compiled files or build output (if applicable later)
+dist/
+build/
+
+# Optional: Sass/SCSS cache
+.sass-cache/
+
+# Optional: Environment variables (if using them)
+.env

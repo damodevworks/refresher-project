@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Landing Page CV</title>
+
+  <!-- Preconnect to Google Fonts for faster loading -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Google Fonts link -->
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Black+Han+Sans&family=League+Spartan:wght@700
+&family=Oswald:wght@600&family=Staatliches
+&family=Alfa+Slab+One
+&family=Quicksand:wght@300;400;700
+&family=Roboto:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+
+  <!-- Link to your CSS -->
+  <link rel="stylesheet" href="./src/css/style.css">
+  </head>
+<body>
+    <header>
+        <div class="navigation">
+            <ul class="menu">
+                <li class="menu__link">About Me</li>
+                <li class="menu__link">My work</li>
+                <li class="menu__link">Contact me!</li>
+        </ul>
+
+            <div class="spinner">
+                <div class="arc arc1"></div>
+                <div class="arc arc2"></div>
+                <div class="arc arc3"></div>
+                <div class="arc arc4"></div>
+            </div>
+
+        </div>
+       
+        <div class="header_container">
+            <div class="title_header">
+
+                <h1 class="animate-headline-main">Hi, <br>
+                    I'm <span>Damian,</span>
+                    <br>Web <span class="job_title">Developer</span>
+                </h1>
+            </div>
+
+        <div class="paragraph_header">
+            <p>
+                Passionate about building clean, responsive websites with a focus on user experience. 
+                <br><br>Currently sharpening my frontend skills and bringing creative ideas to life through code!
+            </p>
+        </div>
+        </div>
+    </header>
+
+    
+    <main>
+        <div class="main-technologies">
+            <h1 class="main_headline">Designing and coding modern websites</h1>
+            <p class="paraMain">Powered by HTML, SASS, JavaScript, React — and a passion for clean, responsive UI.</p>
+
+            <div class="svg_container">
+                <img class="svg_main" src="./assets/icons/html5.svg" alt="HTML5 Icon">
+                <img class="svg_main" src="./assets/icons/css.svg" alt="CSS Icon">
+                <img class="svg_main" src="./assets/icons/javascript.svg" alt="Javascript Icon">
+                <img class="svg_main" src="./assets/icons/github.svg" alt="">
+                <img class="svg_main" src="./assets/icons/npm.svg" alt="">
+                <img class="svg_main" src="./assets/icons/react.svg" alt="">
+            </div>
+            
+        </div>
+    </main>
+
+    <section class="parallax_section">
+            <div class="parallax_bg"></div>
+            <div class="bg_overlay"></div>
+            <div class="parallax_content">
+                <h1 class="move_px create_px">Create.</h1>
+                <h1 class="move_px build_px">Build.</h1>
+            </div>
+    </section>
+
+    <section class="showcase">
+            <div class="line horizontal-line"></div>
+
+            <h1 class="mywork">My work:</h1>
+            <div class="projects">
+                <div class="HH unrevealed">
+                    <div class="HH_overlay"></div>
+                </div>
+                <div class="travelWish unrevealed">
+                    <div class="travelWish_overlay"></div>
+                </div>
+            </div>
+
+            <div class="line horizontal-line-2"></div>
+
+    </section>
+
+    
+    <div class="projects_reveal">
+        
+        <button class="exit" id="exitBtn">X</button>
+
+        <div class="projectsContent" id="contentReveal">
+            <div class="overlay-projects"></div>
+        <!-- Here goes flexible content that will change depending on the button clicked -->
+            
+        </div>
+    </div>
+
+    <footer class="trigger-footer">
+
+        <div class="flex-mobile">
+            <h1 class="footer-heading">Get in Touch</h1>
+            <div class="call-to-action-wrapper">
+                <a href="#" class="link-footer unrevealed">GitHub</a>
+                <div class="line-reveal"></div>
+            </div>
+            
+        </div>
+
+        
+
+        <div class="reveal-footer">
+
+            <div class="footer-content-wrapper">
+                <p class="project-para">
+                    This project is a creative web experiment designed to explore typography, animation, and modern front-end development. 
+                    Built with care using HTML, SCSS, and GSAP.
+            
+                </p>
+                <p class="copyright">&copy; 2025 Damian W. All rights reserved.</p>
+            </div>
+           
+        </div>
+        
+        
+
+
+       
+    </footer>
+    <script type="module" src="./src/js/main.js"></script>
+</body>
+</html>
