@@ -66,7 +66,7 @@ I'm Damian — a self-taught front-end developer rebuilding my coding foundation
 Currently refreshing my skills with modern tools and building toward launching a creative web agency in 2026.
 
 - GitHub: [@damodeev](https://github.com/damodeev)
-- Twitter (X): [@yourhandle](https://x.com/DamoDeeV) 
+- Twitter (X): [@DamoDevWorks](https://x.com/DamoDevWorks) 
 
 ---
 
