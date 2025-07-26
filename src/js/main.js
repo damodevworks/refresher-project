@@ -310,14 +310,14 @@ const projectContent =
     title: 'Hospitality Hashtag - Creative Marketing Agency',
     content: `This is my project that I've created using WordPress combining modern GSAP animations and a sleek look!`,
     urlImage: ['./img/Projects Showcase/HH/Screenshot 2025-07-03 224925.png', 
-        '/img/Projects Showcase/HH/Screenshot 2025-07-03 225001.png',
+        './img/Projects Showcase/HH/Screenshot 2025-07-03 225001.png',
     './img/Projects Showcase/HH/Screenshot 2025-07-03 225040.png']
  },
  tW: {
     title: 'Travel Wish - Travel Blog For an Influencer.',
     content: `This was my first big project built in  WordPress 3 years ago. I learned a lot since then!`,
     urlImage: ['./img/Projects Showcase/Travel Wish/Screenshot 2025-07-03 224739.png', 
-        '/img/Projects Showcase/Travel Wish/Screenshot 2025-07-03 224751.png',
+        './img/Projects Showcase/Travel Wish/Screenshot 2025-07-03 224751.png',
     './img/Projects Showcase/Travel Wish/Screenshot 2025-07-03 224811.png']
  }
 };

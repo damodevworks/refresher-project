@@ -9,6 +9,10 @@ footer {
     @media (max-height: 345px) and (orientation: landscape) {
         height: 110dvh;
     }
+
+    @media (max-width: 900px) {
+        border-radius: 0 0;
+    }
 }
 
 .flex-mobile {
@@ -79,7 +83,6 @@ footer {
     background-color: $header-colour;
     height: 25%;
     width: 100%;
-    // border-radius: 0 0 20px 20px;
     z-index: 3;
 
 

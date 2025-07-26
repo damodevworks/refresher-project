@@ -40,4 +40,8 @@ body {
     padding: 1rem 2rem;
     background-color:  $fourth-colour;
     color: $color-support;
+
+    @media (max-width: 900px) {
+      padding: 0 0;
+    }
 }
