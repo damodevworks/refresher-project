@@ -11,7 +11,6 @@ node_modules/
 *.log
 
 # Compiled files or build output (if applicable later)
-dist/
 build/
 
 # Optional: Sass/SCSS cache
