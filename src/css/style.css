@@ -12,6 +12,10 @@ html {
   font-size: 17px;
 }
 
+html, body {
+  overflow-x: hidden !important;
+}
+
 @media (min-width: 1700px) {
   html {
     font-size: 20px;
@@ -383,14 +387,14 @@ header {
 }
 @media (max-width: 380px) {
   .header_container {
-    top: 60%;
+    top: 50%;
   }
   .title_header h1 {
-    font-size: 1.8rem;
+    font-size: 2.1rem;
   }
   .paragraph_header {
     max-width: 90%;
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
   .navigation .menu__link {
     font-size: 0.8rem;
@@ -642,6 +646,9 @@ main {
   pointer-events: none;
   overflow-x: hidden;
   color: #FFF8E1;
+  overscroll-behavior: contain; /* Prevent scroll from propagating to body */
+  -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS */
+  touch-action: auto; /* Allow vertical scroll inside */
   overflow-y: auto;
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE and Edge */
@@ -680,17 +687,11 @@ main {
   display: flex;
   align-items: center;
   flex-direction: column;
-  height: 200dvh;
   width: 100%;
-}
-@media (max-width: 950px) and (orientation: landscape) {
-  .projectsContent {
-    height: 300dvh;
-  }
+  padding-top: 3rem;
 }
 @media (max-width: 600px) {
   .projectsContent {
-    height: 100dvh;
     padding-top: 3rem;
   }
 }
@@ -718,6 +719,7 @@ main {
 }
 .projectsContent .revealPara {
   padding-top: 50px;
+  max-width: 96%;
   font-size: 19px;
   text-align: center;
   padding-bottom: 40px;
@@ -731,26 +733,25 @@ main {
 
 .img_projects_container {
   flex: 1 1 auto; /* Tells it to grow and shrink as needed */
-  width: 100%;
-  height: 100%;
+  width: 90%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 .img_projects_container .project-image {
-  width: 90%;
+  width: 100%;
   height: 90%;
+  aspect-ratio: 16/9;
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
   border-radius: 1rem;
   margin-bottom: 20px;
 }
-@media (max-width: 950px) and (orientation: landscape) {
+@media (max-width: 600px) {
   .img_projects_container .project-image {
-    width: 100%;
-    height: 100%;
+    aspect-ratio: 5/3;
   }
 }
 

@@ -327,6 +327,7 @@ logos.forEach((project) => {
     project.addEventListener('click', () => {
         //Init
         revealContent.innerHTML = '';
+        document.documentElement.style.overflow = 'hidden';
         document.body.style.overflow = 'hidden';
 
         const overlayProjects = document.createElement('div');
@@ -450,6 +451,7 @@ logos.forEach((project) => {
 
 exitBtn.addEventListener('click', () => {
 
+    document.documentElement.style.overflow = '';
     document.body.style.overflow = '';
 
     projectSectionReveal.classList.remove('active');
