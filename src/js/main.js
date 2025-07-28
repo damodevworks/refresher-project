@@ -167,17 +167,14 @@ gsap.to(".build_px",
 // Responsiveness on landscape (mobile)
 
 media.add("(max-width: 1200px) and (orientation: landscape)", () => {
-    console.log('Landscape mobile/tablet!');
     createParallax(-100, "40vh", "-40vh");
 });
 
 media.add("(min-width: 1201px)", () => {
-    console.log('Desktop / large screens!');
     createParallax(-100, "50vh", "-50vh");
 });
 
 media.add("(orientation: portrait)", () => {
-    console.log('Portrait orientation!');
     createParallax(-100, "40vh", "-40vh");
 });
 
@@ -299,6 +296,17 @@ ScrollTrigger.create({
 
 // Reveal Projects fixed section: 
 
+function preloadImages(urls) {
+  return Promise.all(urls.map(url => {
+    return new Promise((resolve, reject) => {
+      const img = new Image();
+      img.src = url;
+      img.onload = resolve;
+      img.onerror = reject;
+    });
+  }));
+}
+
 const logos = document.querySelectorAll('.HH, .travelWish');
 const projectSectionReveal = document.querySelector('.projects_reveal');
 const exitBtn = document.querySelector('.exit');
@@ -324,130 +332,76 @@ const projectContent =
 
 // Triggering the click 
 logos.forEach((project) => {
-    project.addEventListener('click', () => {
-        //Init
-        revealContent.innerHTML = '';
-        document.documentElement.style.overflow = 'hidden';
-        document.body.style.overflow = 'hidden';
+project.addEventListener('click', () => {
+  // Clear and block scroll
+  revealContent.innerHTML = '';
+  document.documentElement.style.overflow = 'hidden';
+  document.body.style.overflow = 'hidden';
 
-        const overlayProjects = document.createElement('div');
-        overlayProjects.className = 'overlay-projects';
-        revealContent.appendChild(overlayProjects);
+  const overlayProjects = document.createElement('div');
+  overlayProjects.className = 'overlay-projects';
+  revealContent.appendChild(overlayProjects);
 
-        projectSectionReveal.classList.add('active');
+  projectSectionReveal.classList.add('active'); // shows the popup shell (OK!)
 
-        let check = project.classList.contains('HH');
+  const isHH = project.classList.contains('HH');
+  const contentKey = isHH ? 'hh' : 'tW';
+  const { title, content, urlImage } = projectContent[contentKey];
 
-        if (check) {    
-            const title = document.createElement('h1');
-            title.className = 'revealTitle';
-            title.textContent = projectContent['hh']['title'];
+  // ⏳ Wait for background images to preload:
+  preloadImages(urlImage).then(() => {
+    // ✅ Only now: inject DOM content
+    const titleEl = document.createElement('h1');
+    titleEl.className = 'revealTitle';
+    titleEl.textContent = title;
 
-            const para = document.createElement('p');
-            para.className = 'revealPara';
-            para.textContent = projectContent['hh']['content'];
+    const para = document.createElement('p');
+    para.className = 'revealPara';
+    para.textContent = content;
 
-            const imgContainer = document.createElement('div');
-            imgContainer.className = 'img_projects_container';
+    const imgContainer = document.createElement('div');
+    imgContainer.className = 'img_projects_container';
 
-            projectContent['hh']['urlImage'].forEach((url) => {
-               const img = document.createElement('div');
-                img.className = 'project-image';
-                img.style.backgroundImage = `url('${url}')`;
-                imgContainer.appendChild(img);
-            });
-
-            revealContent.appendChild(title);
-            revealContent.appendChild(para);
-            revealContent.appendChild(imgContainer);
-
-            
-             document.fonts.ready.then(() =>{
-            let projectsTitle = SplitText.create('.revealTitle', {
-                type: 'chars',
-                smartWrap: true
-            });
-            gsap.fromTo(projectsTitle.chars, 
-            {
-                opacity: 0,
-                y: 100
-            },
-
-            {
-                opacity: 1,
-                y: 0,
-                stagger: 
-                {
-                    amount: 1,
-                    from: 'random'
-                },
-                ease: "power4.out",
-            }
-        
-        );
-        });
-
-        } else {
-             const title = document.createElement('h1');
-            title.className = 'revealTitle';
-            title.textContent = projectContent['tW']['title'];
-
-            const para = document.createElement('p');
-            para.className = 'revealPara';
-            para.textContent = projectContent['tW']['content'];
-
-            const imgContainer = document.createElement('div');
-            imgContainer.className = 'img_projects_container';
-
-            projectContent['tW']['urlImage'].forEach((url) => {
-               const img = document.createElement('div');
-                img.className = 'project-image';
-                img.style.backgroundImage = `url('${url}')`;
-                imgContainer.appendChild(img);
-            });
-
-            revealContent.appendChild(title);
-            revealContent.appendChild(para);
-            revealContent.appendChild(imgContainer);
-
-            
-             document.fonts.ready.then(() =>{
-            let projectsTitle = SplitText.create('.revealTitle', {
-                type: 'chars',
-                smartWrap: true
-            });
-            gsap.fromTo(projectsTitle.chars, 
-            {
-                opacity: 0,
-                y: 100
-            },
-
-            {
-                opacity: 1,
-                y: 0,
-                stagger: 
-                {
-                    amount: 1,
-                    from: 'random'
-                },
-                ease: "power4.out",
-            }
-        
-        );
-        });
-        };
-
-        
-
-        gsap.to(projectSectionReveal, {
-            opacity: 1,
-            scale: 1,
-            duration: 1,
-            ease: "expo.inOut"
-        });
-
+    urlImage.forEach((url) => {
+      const img = document.createElement('div');
+      img.className = 'project-image';
+      img.style.backgroundImage = `url('${url}')`;
+      imgContainer.appendChild(img);
     });
+
+    revealContent.appendChild(titleEl);
+    revealContent.appendChild(para);
+    revealContent.appendChild(imgContainer);
+
+    // ✅ GSAP anims after fonts + content are fully ready
+    document.fonts.ready.then(() => {
+      const projectsTitle = SplitText.create('.revealTitle', { type: 'chars', smartWrap: true });
+
+      gsap.fromTo(projectsTitle.chars,
+        { opacity: 0, y: 100 },
+        {
+          opacity: 1,
+          y: 0,
+          stagger: { amount: 1, from: 'random' },
+          ease: "power4.out"
+        }
+      );
+    });
+
+    gsap.to(projectSectionReveal, {
+      opacity: 1,
+      scale: 1,
+      duration: 1,
+      ease: "expo.inOut"
+    });
+
+  }).catch((err) => {
+    console.error('Error loading images', err);
+  });
 });
+
+})
+    
 
 exitBtn.addEventListener('click', () => {
 
